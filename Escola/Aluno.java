@@ -2,6 +2,7 @@ package Escola;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.format.DateTimeParseException;
 
 public class Aluno {
     private String nome;
@@ -19,8 +20,16 @@ public class Aluno {
     public Aluno(String nome, String matricula, String dataNascimento) {
         this.nome = nome;
         this.matricula = matricula;
-        this.dataNascimento = LocalDate.parse(dataNascimento);
-        this.nivelEscolar = atribuirNivelEscolar();
+
+        try {
+            this.dataNascimento = LocalDate.parse(dataNascimento);
+            this.nivelEscolar = atribuirNivelEscolar();
+        } catch (DateTimeParseException e) {
+            System.out.println("Erro ao converter a data de nascimento: " + dataNascimento);
+            System.out.println("Formato esperado: yyyy-MM-dd (ex: 2005-03-15)");
+            this.dataNascimento = null;
+            this.nivelEscolar = null;
+        }
     }
 
     public int calcularIdade() {

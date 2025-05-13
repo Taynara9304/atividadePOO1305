@@ -2,6 +2,7 @@ package Escola;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Main_Escola {
@@ -18,7 +19,16 @@ public class Main_Escola {
         listaAlunos.add(aluno3);
         listaAlunos.add(aluno4);
 
-        for (Aluno aluno : listaAlunos) {
+        // for (Aluno aluno : listaAlunos) {
+        //     aluno.imprimirTudo();
+        // }
+
+        Iterator iterador = listaAlunos.iterator();
+
+        while (iterador.hasNext()) {
+            Object elemento = iterador.next();
+            Aluno aluno = (Aluno) elemento;
+
             aluno.imprimirTudo();
         }
     }
