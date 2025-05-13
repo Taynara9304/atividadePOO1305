@@ -1,25 +1,25 @@
 package Escola;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main_Escola {
     public static void main(String[] args) {
-        List<Enum_NivelEnsino> listaNiveis = new ArrayList<>();
+        List<Aluno> listaAlunos = new ArrayList<>();
 
-        Enum_NivelEnsino aluno1 = Enum_NivelEnsino.FUNDAMENTAL;
-        Enum_NivelEnsino aluno2 = Enum_NivelEnsino.MÉDIO;
-        Enum_NivelEnsino aluno3 = Enum_NivelEnsino.SUPERIOR;
-        Enum_NivelEnsino aluno4 = Enum_NivelEnsino.FUNDAMENTAL;
+        Aluno aluno1 = new Aluno("Larissa", "1223", "2010-09-10");
+        Aluno aluno2 = new Aluno("Fernanda", "2444", "2001-05-01");
+        Aluno aluno3 = new Aluno("Arthur", "6542", "2012-03-23");
+        Aluno aluno4 = new Aluno("Amanda", "4122", "2020-12-04");
 
-        listaNiveis.add(aluno1);
-        listaNiveis.add(aluno2);
-        listaNiveis.add(aluno3);
-        listaNiveis.add(aluno4);
+        listaAlunos.add(aluno1);
+        listaAlunos.add(aluno2);
+        listaAlunos.add(aluno3);
+        listaAlunos.add(aluno4);
 
-        for (Enum_NivelEnsino aluno : listaNiveis) {
-            System.out.println(aluno);
-            System.out.println(aluno.getDescricao());
+        for (Aluno aluno : listaAlunos) {
+            aluno.imprimirTudo();
         }
     }
 }
